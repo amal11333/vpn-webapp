@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>VPN Store</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ── Шапка ─────────────────────────────────────────────────────────── -->
+  <header class="header">
+    <div class="header-icon">🛡</div>
+    <div>
+      <h1 class="header-title">VPN Store</h1>
+      <p class="header-sub">Быстро · Надёжно · Анонимно</p>
+    </div>
+  </header>
+
+  <!-- ── Тарифы ────────────────────────────────────────────────────────── -->
+  <main class="container">
+    <p class="section-label">Выберите тариф</p>
+
+    <div class="plans">
+
+      <!-- Пробная -->
+      <div class="plan-card" id="card-trial">
+        <div class="plan-badge badge-gray">Попробовать</div>
+        <div class="plan-emoji">🌱</div>
+        <div class="plan-name">Пробная</div>
+        <div class="plan-price">49 <span class="plan-currency">₽</span></div>
+        <div class="plan-duration">7 дней</div>
+        <ul class="plan-features">
+          <li>✅ Высокая скорость</li>
+          <li>✅ Анонимность</li>
+          <li>✅ Все устройства</li>
+        </ul>
+        <button class="btn-buy" onclick="selectPlan('trial','Пробная',7,49)">
+          Купить — 49 ₽
+        </button>
+      </div>
+
+      <!-- 30 дней -->
+      <div class="plan-card popular" id="card-month">
+        <div class="plan-badge badge-purple">⭐ Популярный</div>
+        <div class="plan-emoji">⚡</div>
+        <div class="plan-name">30 дней</div>
+        <div class="plan-price">149 <span class="plan-currency">₽</span></div>
+        <div class="plan-duration">1 месяц</div>
+        <ul class="plan-features">
+          <li>✅ Высокая скорость</li>
+          <li>✅ Анонимность</li>
+          <li>✅ Все устройства</li>
+          <li>✅ Приоритетный сервер</li>
+        </ul>
+        <button class="btn-buy btn-popular" onclick="selectPlan('month','30 дней',30,149)">
+          Купить — 149 ₽
+        </button>
+      </div>
+
+      <!-- 60 дней -->
+      <div class="plan-card" id="card-two_months">
+        <div class="plan-badge badge-green">🔥 Выгода 16%</div>
+        <div class="plan-emoji">🚀</div>
+        <div class="plan-name">60 дней</div>
+        <div class="plan-price">249 <span class="plan-currency">₽</span></div>
+        <div class="plan-duration">2 месяца</div>
+        <ul class="plan-features">
+          <li>✅ Высокая скорость</li>
+          <li>✅ Анонимность</li>
+          <li>✅ Все устройства</li>
+          <li>✅ Приоритетный сервер</li>
+          <li>✅ Максимальная экономия</li>
+        </ul>
+        <button class="btn-buy" onclick="selectPlan('two_months','60 дней',60,249)">
+          Купить — 249 ₽
+        </button>
+      </div>
+
+    </div><!-- /plans -->
+
+    <!-- ── Преимущества ───────────────────────────────────────────────── -->
+    <div class="features-section">
+      <p class="section-label">Все тарифы включают</p>
+      <div class="features-grid">
+        <div class="feature-tile">
+          <span class="feature-icon">⚡</span>
+          <span>Быстрое соединение</span>
+        </div>
+        <div class="feature-tile">
+          <span class="feature-icon">🔐</span>
+          <span>AES-256 шифрование</span>
+        </div>
+        <div class="feature-tile">
+          <span class="feature-icon">🌍</span>
+          <span>Серверы по всему миру</span>
+        </div>
+        <div class="feature-tile">
+          <span class="feature-icon">📵</span>
+          <span>Без логов</span>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ── Модальное окно подтверждения ──────────────────────────────────── -->
+  <div class="modal-overlay hidden" id="modal">
+    <div class="modal">
+      <h2 class="modal-title">Подтвердить заказ</h2>
+      <div class="modal-body" id="modal-body"></div>
+      <p class="modal-note">
+        После оплаты администратор выдаст вам VPN-ключ в чат.
+      </p>
+      <div class="modal-actions">
+        <button class="btn-confirm" id="btn-confirm">✅ Отправить заявку</button>
+        <button class="btn-cancel" onclick="closeModal()">Отмена</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Telegram WebApp SDK -->
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
